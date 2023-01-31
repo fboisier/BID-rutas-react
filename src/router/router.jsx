@@ -5,6 +5,7 @@ import Contacto from "../pages/Contacto";
 import ContactoDetalle from "../pages/ContactoDetalle";
 import Home from "../pages/Home";
 import NotFound from "../pages/NotFound";
+import Pancho from "../pages/Pancho";
 
 
 export const router = createBrowserRouter([
@@ -29,7 +30,10 @@ export const router = createBrowserRouter([
                 path: "/acerca",
                 element: <Acerca />,
             },
+            {
+                path: "/pancho",
+                element: <Pancho />,
+            },
         ]
     },
-    
 ]);

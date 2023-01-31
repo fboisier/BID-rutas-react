@@ -6,8 +6,12 @@ const Layout = () => {
     return (
         <>
             <Menu />
-            <Outlet />
-            <footer className="mt-5">Pie de Pagina</footer>
+            <div className="container">
+                <Outlet />
+            <footer className="mt-5">
+                <div className="alert alert-info">Aplicación WEB Creada en Clases de MERN - Coding Dojo - BID</div>
+            </footer>
+            </div>
         </>
     )
 }
