@@ -1,15 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
+import useFetch from '../hooks/useFetch';
 
 const Contacto = () => {
 
-  const [usuarios, setUsuarios] = useState(null);
-
-  useEffect(() => {
-    fetch('https://jsonplaceholder.typicode.com/users')
-      .then(response => response.json())
-      .then(json => setUsuarios(json))
-  }, [])
+  const { data: usuarios, error, loading } = useFetch('https://jsonplaceholder.typicode.com/users');
   
   return (
     <div>
@@ -17,10 +12,11 @@ const Contacto = () => {
       <p>Esta es la página de contactos.</p>
       <ul>
         {
-          (!usuarios) ? <span className="loader"></span>
+          (loading) ? <span className="loader"></span>
           :
           usuarios.map( (user, index) => <li key={index}><Link to={ `/contacto/${user.id}` }>{user.name}</Link></li> )
         }
+        {error && <p>{error}</p>}
       </ul>
     </div>
   )
